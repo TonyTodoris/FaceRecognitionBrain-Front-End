@@ -18,11 +18,21 @@ const app = new Clarifai.App({
 const particlesOptions ={
                 particles: {
                   number:{
-                    value: 80,
+                    value: 40,
                     density: {
                       enable: true,
                       value_area: 400
                     }
+                  },
+                  move:{
+                    enable: true
+                  },
+                  color: {
+                    value: '#706262'
+                  },
+                  size: {
+                    value: 10,
+                    random: true
                   }
               },
               "interactivity": {
@@ -53,7 +63,6 @@ class App extends Component {
       isSignedIn: 'false' // Boolean('false') ==  true so thats why it passes as true value
     }
   }
-
 
   calculateFaceLocation = (data) => {
     const clarifaiFace = data.outputs[0].data.regions[0].region_info.bounding_box;
