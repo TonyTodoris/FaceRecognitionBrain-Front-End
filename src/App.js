@@ -124,6 +124,7 @@ class App extends Component {
         .then(count => {
           this.setState(Object.assign(this.state.user, {entries: count})) //Object assign to just keep the same user profile but assign new entries
         })
+        .catch(err => console.log(err));
       }
       this.displayFaceBox(this.calculateFaceLocation(response));
     })
