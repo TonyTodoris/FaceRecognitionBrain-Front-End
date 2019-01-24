@@ -8,11 +8,7 @@ import Signin from './components/Signin/Signin';
 import Register from './components/Register/Register';
 import './App.css';
 import Particles from 'react-particles-js';
-import Clarifai from 'clarifai';
 
-const app = new Clarifai.App({
- apiKey: 'c746b7c2e40e471bb756b210b7e63a82'
-});
 
 
 const particlesOptions ={
@@ -110,7 +106,14 @@ class App extends Component {
     const { id } = this.state.user;
 
     this.setState({imageUrl: this.state.input});
-    app.models.predict(Clarifai.FACE_DETECT_MODEL, this.state.input)
+    fetch('http://localhost:3000/imageurl', {
+          method: 'POST',
+          headers: {'Content-Type' : 'application/json'},
+          body: JSON.stringify({
+            input:this.state.input
+           })
+    })
+    .then(response => response.json())
     .then(response => {
       if(response){ //Using the put method for image submitting to count the entries of the current user
         fetch('http://localhost:3000/image', {
