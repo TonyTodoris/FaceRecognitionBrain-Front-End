@@ -106,7 +106,7 @@ class App extends Component {
     const { id } = this.state.user;
 
     this.setState({imageUrl: this.state.input});
-    fetch('http://localhost:3000/imageurl', {
+    fetch('https://blooming-sierra-23473.herokuapp.com/imageurl', {
           method: 'POST',
           headers: {'Content-Type' : 'application/json'},
           body: JSON.stringify({
@@ -116,7 +116,7 @@ class App extends Component {
     .then(response => response.json())
     .then(response => {
       if(response){ //Using the put method for image submitting to count the entries of the current user
-        fetch('http://localhost:3000/image', {
+        fetch('https://blooming-sierra-23473.herokuapp.com/image', {
           method: 'PUT',
           headers: {'Content-Type' : 'application/json'},
           body: JSON.stringify({

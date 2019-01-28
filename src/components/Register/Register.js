@@ -21,9 +21,9 @@ class Register extends React.Component{
 	onNameChange = (event) => {
 		this.setState({registerName: event.target.value});
 	}
-
+	
 	onSubmitRegister = () => {
-		fetch('http://localhost:3000/register', {
+		fetch('https://blooming-sierra-23473.herokuapp.com/register', {
 			method: 'POST',
 			headers: {'Content-Type' : 'application/json'},
 			body: JSON.stringify({
